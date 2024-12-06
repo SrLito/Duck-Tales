@@ -16,7 +16,7 @@ func _physics_process(delta):
 		velocity.y = velocity.y + gravedad * delta
 	
 	# Aplico mecanica de salto.
-	if is_on_floor() and Input.is_action_just_pressed("saltar"):
+	if Input.is_action_just_pressed("saltar"):
 		velocity.y = velocity.y + salto
 		print("salta")
 	move_and_slide()	
