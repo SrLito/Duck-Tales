@@ -10,6 +10,10 @@ func _physics_process(delta):
 	# Movimiento horizontal.
 	var direccion = Input.get_axis("izquierda" , "derecha")
 	velocity.x = velocidad * direccion
+	
+	# Mirar a izquierda o derecha
+	if direccion != 0:
+		$Sprite2D.scale = direccion
 		
 	# Aplico gravedad al personaje.
 	if not is_on_floor():
