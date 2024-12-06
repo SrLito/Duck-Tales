@@ -36,6 +36,13 @@ derecha={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Plataforma"
+2d_physics/layer_2="Jugador"
+2d_physics/layer_3="Enemigo"
+2d_physics/layer_4="Joya"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://dqsgatai7bmba"]
+[gd_scene load_steps=4 format=3 uid="uid://dqsgatai7bmba"]
 
 [ext_resource type="PackedScene" uid="uid://dwmkevr0jukh3" path="res://escenas/jugador.tscn" id="1_22uyw"]
 [ext_resource type="PackedScene" uid="uid://bwhp6vk4a73gs" path="res://escenas/piso.tscn" id="2_uqba0"]
+[ext_resource type="PackedScene" uid="uid://cwceq1erih61u" path="res://escenas/plataforma_colision.tscn" id="3_dnn4r"]
 
 [node name="Nivel" type="Node2D"]
 
 [node name="Jugador" parent="." instance=ExtResource("1_22uyw")]
+position = Vector2(350, 229)
 velocidad = 150
 salto = -500
 
@@ -19,3 +21,12 @@ scale = Vector2(2.57533, 0.770106)
 [node name="Piso" parent="Piso" instance=ExtResource("2_uqba0")]
 position = Vector2(230.65, 41.5527)
 scale = Vector2(2.57533, 0.770106)
+
+[node name="PlataformaColision" parent="." instance=ExtResource("3_dnn4r")]
+position = Vector2(132, 417)
+
+[node name="Piso" parent="PlataformaColision" instance=ExtResource("2_uqba0")]
+position = Vector2(761, -144)
+scale = Vector2(5.56, 1)
+
+[connection signal="body_entered" from="PlataformaColision" to="Jugador" method="_on_plataforma_colision_body_entered"]
