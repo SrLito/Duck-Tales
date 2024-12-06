@@ -1,0 +1,4 @@
+res://escenas/nivel.tscn
+res://escenas/jugador.tscn
+res://escenas/piso.tscn
+res://scripts/jugador.gd

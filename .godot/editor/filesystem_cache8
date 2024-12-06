@@ -1,0 +1,9 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1733442724
+icon.svg::CompressedTexture2D::8387924482851936790::1733441912::1733442254::1::::<><>::
+jugador.gd::GDScript::-1::1733442703::0::1::::<>CharacterBody2D<>::
+::res://escenas/::1733442724
+jugador.tscn::PackedScene::8728804587668755778::1733442691::0::1::::<><>::uid://drrf5jxx5inqc::::res://icon.svg
+nivel.tscn::PackedScene::8319807649167448154::1733442691::0::1::::<><>::uid://dwmkevr0jukh3::::res://escenas/jugador.tscn<>uid://bwhp6vk4a73gs::::res://escenas/piso.tscn
+piso.tscn::PackedScene::3945993122268095470::1733442691::0::1::::<><>::uid://drrf5jxx5inqc::::res://icon.svg
+::res://scripts/::1733442720

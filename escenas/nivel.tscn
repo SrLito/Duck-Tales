@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqsgatai7bmba"]
+
+[ext_resource type="PackedScene" uid="uid://dwmkevr0jukh3" path="res://escenas/jugador.tscn" id="1_22uyw"]
+[ext_resource type="PackedScene" uid="uid://bwhp6vk4a73gs" path="res://escenas/piso.tscn" id="2_uqba0"]
+
+[node name="Nivel" type="Node2D"]
+
+[node name="Jugador" parent="." instance=ExtResource("1_22uyw")]
+velocidad = 100
+salto = -100
+gravedad = 10
+
+[node name="Piso" parent="." instance=ExtResource("2_uqba0")]
+position = Vector2(182, 510)
+scale = Vector2(2.57533, 0.770106)
+
+[node name="Piso" parent="Piso" instance=ExtResource("2_uqba0")]
+position = Vector2(230.65, 41.5527)
+scale = Vector2(2.57533, 0.770106)
