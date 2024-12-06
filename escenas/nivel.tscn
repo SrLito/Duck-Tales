@@ -9,6 +9,9 @@
 velocidad = 150
 salto = -500
 
+[node name="Camera2D" type="Camera2D" parent="Jugador"]
+position_smoothing_enabled = true
+
 [node name="Piso" parent="." instance=ExtResource("2_uqba0")]
 position = Vector2(182, 510)
 scale = Vector2(2.57533, 0.770106)

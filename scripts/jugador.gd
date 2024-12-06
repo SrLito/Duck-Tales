@@ -13,7 +13,7 @@ func _physics_process(delta):
 	
 	# Mirar a izquierda o derecha
 	if direccion != 0:
-		$Sprite2D.scale = direccion
+		$Sprite2D.scale.x = direccion
 		
 	# Aplico gravedad al personaje.
 	if not is_on_floor():
