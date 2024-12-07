@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbx2lj70qanro"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_xtcxj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n65ev"]
+size = Vector2(61, 502)
+
+[node name="Cuerda" type="Area2D"]
+collision_mask = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(22.5, 0)
+scale = Vector2(0.119141, 1)
+texture = SubResource("NoiseTexture2D_xtcxj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(20.5, 0)
+shape = SubResource("RectangleShape2D_n65ev")
