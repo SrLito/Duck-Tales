@@ -1,6 +1,6 @@
 res://escenas/jugador.tscn
-res://scripts/jugador.gd
 res://escenas/piso.tscn
 res://escenas/nivel.tscn
 res://escenas/plataforma_colision.tscn
 res://escenas/cuerda.tscn
+res://scripts/jugador.gd

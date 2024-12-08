@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dwmkevr0jukh3"]
 
 [ext_resource type="Script" path="res://scripts/jugador.gd" id="1_448l5"]
-[ext_resource type="Texture2D" uid="uid://dsnwqsep2o53e" path="res://sprites/beta/reposoBeta.png" id="2_4a18e"]
+[ext_resource type="Texture2D" uid="uid://dsnwqsep2o53e" path="res://sprites/beta/reposoBeta.png" id="2_5elkk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7wm6a"]
 size = Vector2(127, 180)
@@ -10,9 +10,10 @@ size = Vector2(127, 180)
 collision_layer = 2
 collision_mask = 13
 script = ExtResource("1_448l5")
+velocidad = 400
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_4a18e")
+texture = ExtResource("2_5elkk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, -1)

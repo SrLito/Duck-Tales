@@ -11,6 +11,15 @@ var saltoBaston = false
 var colisionCuerda = false
 var estaColgado = false
 
+# Funciones de la maquina de estados. // MAS ADELANTE LAS AGREGO
+#func estadoReposo(active:bool):
+#func estadoCorrer(active:bool):
+#func estadoSaltar(active:bool):
+#func estadoSaltarPogo(active:bool):
+#func estadoAtacar(active:bool):
+#func estadoColgar(active:bool):
+#func estadoAgachar(active:bool):
+
 func _physics_process(delta):
 
 	## MOVIMIENTO HORIZONTAL
@@ -23,7 +32,7 @@ func _physics_process(delta):
 		$Sprite2D.scale.x = direccion
 
 	## GRAVEDAD
-	if not is_on_floor():
+	if not is_on_floor() and not estaColgado:
 		velocity.y = velocity.y + gravedad * delta
 
 	## MÉCANICA DE SALTO
@@ -44,24 +53,16 @@ func _physics_process(delta):
 	# Agarrar la cuerda.
 	if colisionCuerda and (Input.is_action_just_pressed("bajar") or Input.is_action_just_pressed("subir")) :
 		estaColgado = true
-		velocity.x = 0
-		velocity.y = 0
-		gravedad = 0
+		velocity = Vector2.ZERO
 	 # Subir o bajar por la cuerda.
 	if estaColgado:
-		if Input.is_action_just_pressed("subir"):
-			velocity.y = -100
-		if Input.is_action_just_released("subir"):
-			velocity.y = 0
-		if Input.is_action_pressed("bajar"):
-			velocity.y = 100
-		if Input.is_action_just_released("bajar"):
-			velocity.y = 0
+		var direccion_cuerda = Input.get_axis("bajar", "subir")
+		velocity.y = -direccion_cuerda * 100
 	# Soltar la cuerda.
 	if estaColgado:
 		if Input.is_action_just_pressed("saltar"):
 			estaColgado = false
-			gravedad = 980
+	
 
 	move_and_slide()    
 
@@ -73,7 +74,7 @@ func _on_cuerda_body_entered(_body: Node2D) -> void:
 func _on_cuerda_body_exited(_body: Node2D) -> void:
 	# Estado del personaje con respecto a la cuerda.
 	colisionCuerda = false
-	# S i el personaje sale de la cuerda.
+	# Si el personaje sale de la cuerda.
 	estaColgado = false
 	gravedad = 980
 	
