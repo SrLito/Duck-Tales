@@ -12,45 +12,42 @@ var colisionCuerda = false
 var estaColgado = false
 
 func _physics_process(delta):
-	
-	# Movimiento horizontal.
+
+	## MOVIMIENTO HORIZONTAL
 	var direccion = Input.get_axis("izquierda" , "derecha")
-	
 	# Si el personaje no esta colgado de la cuerda, le permite moverse.
 	if not estaColgado:
 		velocity.x = velocidad * direccion
-	
 	# Mirar a izquierda o derecha
 	if direccion != 0:
 		$Sprite2D.scale.x = direccion
-		
-	# Aplico gravedad al personaje.
+
+	## GRAVEDAD
 	if not is_on_floor():
 		velocity.y = velocity.y + gravedad * delta
-	
-	# Aplico mecanica de salto.
+
+	## MÉCANICA DE SALTO
+	# Salto simple
 	if Input.is_action_just_pressed("saltar") and is_on_floor():
 		velocity.y = velocity.y + salto
 	# Si esta en el aire y presiona "espacio" activo bandera.
-	if Input.is_action_just_pressed("saltar") and not is_on_floor():
+	if Input.is_action_pressed("saltar") and not is_on_floor() and not estaColgado:
 		saltoBaston = true
 	# Al soltar "espacio" desactivo bandera.
 	if Input.is_action_just_released("saltar"):
-		saltoBaston = false
+		saltoBaston = false 
 	# Realizo el salto con bastón.
 	if is_on_floor() and saltoBaston:
 		velocity.y = velocity.y - 1000
 	
-	# Mécanica de la cuerda.
-	
+	## MÉCANICA DE ESCALAR
 	# Agarrar la cuerda.
 	if colisionCuerda and (Input.is_action_just_pressed("bajar") or Input.is_action_just_pressed("subir")) :
 		estaColgado = true
 		velocity.x = 0
 		velocity.y = 0
 		gravedad = 0
-		
-	 
+	 # Subir o bajar por la cuerda.
 	if estaColgado:
 		if Input.is_action_just_pressed("subir"):
 			velocity.y = -100
@@ -60,25 +57,23 @@ func _physics_process(delta):
 			velocity.y = 100
 		if Input.is_action_just_released("bajar"):
 			velocity.y = 0
-			
 	# Soltar la cuerda.
 	if estaColgado:
 		if Input.is_action_just_pressed("saltar"):
 			estaColgado = false
 			gravedad = 980
 
-	print(gravedad)
 	move_and_slide()    
-  	
 
 
 func _on_cuerda_body_entered(_body: Node2D) -> void:
 	# Estado del personaje con respecto a la cuerda.
 	colisionCuerda = true
+	
 func _on_cuerda_body_exited(_body: Node2D) -> void:
 	# Estado del personaje con respecto a la cuerda.
 	colisionCuerda = false
-	#Si el personaje sale de la cuerda.
+	# S i el personaje sale de la cuerda.
 	estaColgado = false
 	gravedad = 980
 	

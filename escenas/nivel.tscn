@@ -33,6 +33,5 @@ scale = Vector2(5.56, 1)
 [node name="Cuerda" parent="." instance=ExtResource("4_6bfq0")]
 position = Vector2(793, -260)
 
-[connection signal="body_entered" from="PlataformaColision" to="Jugador" method="_on_plataforma_colision_body_entered"]
 [connection signal="body_entered" from="Cuerda" to="Jugador" method="_on_cuerda_body_entered"]
 [connection signal="body_exited" from="Cuerda" to="Jugador" method="_on_cuerda_body_exited"]
