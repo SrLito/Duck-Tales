@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dqsgatai7bmba"]
+[gd_scene load_steps=6 format=3 uid="uid://dqsgatai7bmba"]
 
 [ext_resource type="PackedScene" uid="uid://dwmkevr0jukh3" path="res://escenas/jugador.tscn" id="1_22uyw"]
 [ext_resource type="PackedScene" uid="uid://bwhp6vk4a73gs" path="res://escenas/piso.tscn" id="2_uqba0"]
 [ext_resource type="PackedScene" uid="uid://cwceq1erih61u" path="res://escenas/plataforma_colision.tscn" id="3_dnn4r"]
 [ext_resource type="PackedScene" uid="uid://dbx2lj70qanro" path="res://escenas/cuerda.tscn" id="4_6bfq0"]
+[ext_resource type="PackedScene" uid="uid://cu8jev8igd1o4" path="res://escenas/aro.tscn" id="5_2y3u7"]
 
 [node name="Nivel" type="Node2D"]
 
@@ -33,5 +34,10 @@ scale = Vector2(5.56, 1)
 [node name="Cuerda" parent="." instance=ExtResource("4_6bfq0")]
 position = Vector2(793, -260)
 
+[node name="Aro" parent="." instance=ExtResource("5_2y3u7")]
+position = Vector2(1054, -13)
+
 [connection signal="body_entered" from="Cuerda" to="Jugador" method="_on_cuerda_body_entered"]
 [connection signal="body_exited" from="Cuerda" to="Jugador" method="_on_cuerda_body_exited"]
+[connection signal="body_entered" from="Aro" to="Jugador" method="_on_aro_body_entered"]
+[connection signal="body_exited" from="Aro" to="Jugador" method="_on_aro_body_exited"]

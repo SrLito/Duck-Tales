@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cu8jev8igd1o4"]
+
+[ext_resource type="Texture2D" uid="uid://dcahqfq55ev1r" path="res://sprites/beta/aroBeta.png" id="1_gq2vk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4buqy"]
+radius = 36.0
+
+[node name="Aro" type="Area2D"]
+collision_mask = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2.38419e-07, 5.96046e-08)
+scale = Vector2(0.0838926, 0.0838926)
+texture = ExtResource("1_gq2vk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_4buqy")
