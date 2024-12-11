@@ -5,6 +5,7 @@ extends CharacterBody2D
 @export var salto = -100
 @export var gravedad = 980
 @export var saltoPogo = -500
+@export var cortarSalto = 0.01
 
 # Variables de estado del personaje.
 var saltoBaston = false
@@ -39,6 +40,9 @@ func _physics_process(delta):
 	# Salto simple
 	if Input.is_action_just_pressed("saltar") and is_on_floor():
 		velocity.y = velocity.y + salto
+	# Ajuste de salto variable
+	if Input.is_action_just_released("saltar") and velocity.y < 0:
+		velocity.y = velocity.y * cortarSalto
 	# Si esta en el aire y presiona "espacio" activo bandera.
 	if Input.is_action_pressed("saltar") and not is_on_floor() and not estaColgado:
 		saltoBaston = true
@@ -76,5 +80,3 @@ func _on_cuerda_body_exited(_body: Node2D) -> void:
 	colisionCuerda = false
 	# Si el personaje sale de la cuerda.
 	estaColgado = false
-	gravedad = 980
-	
